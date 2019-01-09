@@ -115,16 +115,12 @@ export default {
   }
 }
 </script>
+
 <style module lang="scss">
-  // #bodycontainer {
-  // max-width: 600px;
-  // margin: 0 auto;
-  // }
   .container {
     padding-right: 0;
     padding-left: 0;
   }
-
   .mu-card {
     margin-bottom: 50px;
   }
@@ -132,5 +128,4 @@ export default {
   .mu-card-title-container {
     padding: 16px 16px 0 16px;
   }
-
 </style>
