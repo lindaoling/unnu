@@ -116,7 +116,7 @@ export default {
 }
 </script>
 
-<style module lang="scss">
+<style lang="scss">
   .container {
     padding-right: 0;
     padding-left: 0;
