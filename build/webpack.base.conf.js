@@ -21,11 +21,11 @@ const createLintingRule = () => ({
 
 module.exports = {
   externals: {
-    // 'vue': 'Vue',
-    // 'vuex': 'Vuex',
-    // 'vue-router': 'VueRouter',
-    // 'axios': 'axios',
-    // 'museUi': 'museUi'
+    'vue': 'Vue',
+    'vuex': 'Vuex',
+    'vue-router': 'VueRouter',
+    'axios': 'axios',
+    'museUi': 'museUi'
   },
   context: path.resolve(__dirname, '../'),
   entry: {
