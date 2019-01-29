@@ -31,11 +31,12 @@
         <mu-card>
           <mu-card-header title="Myron Avatar" sub-title="sub title">
             <mu-avatar slot="avatar">
-              <img src="/static/images/photo/37603354_281525412609016_6184662999689592832_n.jpg">
+              <!-- <img src="/static/images/photo/37603354_281525412609016_6184662999689592832_n.jpg"> -->
+              <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/43914368_2388146701227914_8046520467531890451_n.jpg">
             </mu-avatar>
           </mu-card-header>
           <mu-card-media>
-            <img src="/static/images/photo/37603354_281525412609016_6184662999689592832_n.jpg">
+            <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
           </mu-card-media>
           <mu-card-title title="Content Title" sub-title="sub title"></mu-card-title>
           <mu-card-text>
