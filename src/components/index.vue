@@ -1,7 +1,6 @@
 <template>
   <div>
-    
-    <!-- <div style="background-color: #f5f5f5;" v-resize="resize">
+    <div style="background-color: #f5f5f5;" v-resize="resize">
       <mu-container>
         <mu-appbar z-depth="0">
           <mu-button v-show="mobileHeaderMenu" icon slot="left" @click="open = !open">
@@ -12,9 +11,9 @@
           <mu-button v-show="!mobileHeaderMenu" flat slot="right">Photo</mu-button>
         </mu-appbar>
       </mu-container>
-    </div> -->
+    </div>
 
-    <!-- <mu-drawer :open.sync="open" :docked="docked" :right="position === 'right'">
+    <mu-drawer :open.sync="open" :docked="docked" :right="position === 'right'">
       <mu-list>
         <mu-list-item button>
           <mu-list-item-title>Article</mu-list-item-title>
@@ -26,7 +25,7 @@
           <mu-list-item-title>Close</mu-list-item-title>
         </mu-list-item>
       </mu-list>
-    </mu-drawer> -->
+    </mu-drawer>
 
     <main style="margin-top:20px;">
       <mu-container style="padding:0;max-width:660px;">
@@ -73,9 +72,9 @@ export default {
   },
   methods: {
     resize () {
-      // this.windowInnerWidth = window.innerWidth
-      // this.windowInnerHeight = window.innerHeight
-      // this.mobileHeaderMenu = this.windowInnerWidth < 600
+      this.windowInnerWidth = window.innerWidth
+      this.windowInnerHeight = window.innerHeight
+      this.mobileHeaderMenu = this.windowInnerWidth < 600
     }
   }
 }
