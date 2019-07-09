@@ -25,7 +25,7 @@ module.exports = {
     'vuex': 'Vuex',
     'vue-router': 'VueRouter',
     'axios': 'axios',
-    'museUi': 'museUi'
+    'museUi': 'MuseUI'
   },
   context: path.resolve(__dirname, '../'),
   entry: {
