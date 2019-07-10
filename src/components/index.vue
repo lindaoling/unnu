@@ -7,7 +7,7 @@
       </mu-appbar>
     </div>
     <div style="width: 100%;max-width:700px;margin: 0 auto;">
-      <mu-card style="width: 100%;margin-top:20px;">
+      <mu-card class="card-style">
         <mu-card-header title="Myron Avatar" sub-title="sub title">
           <mu-avatar slot="avatar">
             <img
@@ -48,5 +48,8 @@
     padding: 0;
     margin: 0;
   }
-
+  .card-style{
+    width: 100%;
+    margin-top:20px;
+  }
 </style>
