@@ -41,7 +41,7 @@
           <mu-button flat>风景</mu-button>
         </mu-card-actions>
       </mu-card>
-      <mu-card class="card-style">
+      <!-- <mu-card class="card-style">
         <mu-card-header title="Myron Avatar" sub-title="sub title">
           <mu-avatar slot="avatar">
             <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
@@ -71,7 +71,7 @@
           <mu-button flat>人文</mu-button>
           <mu-button flat>风景</mu-button>
         </mu-card-actions>
-      </mu-card>
+      </mu-card> -->
     </div>
   </div>
 </template>
