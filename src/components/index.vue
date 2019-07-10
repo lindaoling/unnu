@@ -25,6 +25,23 @@
         </mu-card-actions>
       </mu-card>
       <mu-card class="card-style">
+        <mu-card-header title="Halo" sub-title="练习时长两年半业余摄影爱好者">
+          <mu-avatar slot="avatar">
+            <img
+              src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
+          </mu-avatar>
+        </mu-card-header>
+        <mu-card-media>
+          <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/SAM_5746.jpg">
+        </mu-card-media>
+        <mu-card-title title="祖孙" sub-title="炎热夏天，竹下乘凉"></mu-card-title>
+        <!-- <mu-card-text></mu-card-text> -->
+        <mu-card-actions>
+          <mu-button flat>人文</mu-button>
+          <mu-button flat>风景</mu-button>
+        </mu-card-actions>
+      </mu-card>
+      <mu-card class="card-style">
         <mu-card-header title="Myron Avatar" sub-title="sub title">
           <mu-avatar slot="avatar">
             <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
