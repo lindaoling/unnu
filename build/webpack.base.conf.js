@@ -25,7 +25,7 @@ module.exports = {
     'vuex': 'Vuex',
     'vue-router': 'VueRouter',
     'axios': 'axios',
-    'museUi': 'museUi'
+    'museUi': 'MuseUI'
   },
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -46,7 +46,7 @@ module.exports = {
   },
   module: {
     rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
