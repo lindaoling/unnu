@@ -34,7 +34,7 @@
         <mu-card-media>
           <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/SAM_5746.jpg">
         </mu-card-media>
-        <mu-card-title title="祖孙" sub-title="炎热夏天，竹下乘凉"></mu-card-title>
+        <mu-card-title title="祖孙" sub-title="炎热夏日，竹下乘凉"></mu-card-title>
         <!-- <mu-card-text></mu-card-text> -->
         <mu-card-actions>
           <mu-button flat>人文</mu-button>
