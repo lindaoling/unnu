@@ -18,8 +18,7 @@
           <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/DSC_8387-2.jpg">
         </mu-card-media>
         <mu-card-title title="三老头" sub-title="两小屁孩模仿祖母拄拐杖"></mu-card-title>
-        <mu-card-text>
-        </mu-card-text>
+        <!-- <mu-card-text></mu-card-text> -->
         <mu-card-actions>
           <mu-button flat>人文</mu-button>
           <mu-button flat>风景</mu-button>
