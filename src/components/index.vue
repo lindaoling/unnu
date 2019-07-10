@@ -1,16 +1,21 @@
 <template>
   <div>
-    <div style="width: 100%;max-width:600px;margin: 0 auto;">
-      <mu-card style="width: 100%;margin: 0 auto;">
+    <div style="background-color: #f5f5f5;">
+      <mu-appbar style="width: 100%;max-width:1000px;margin: 0 auto;" z-depth="0" title="UNNU">
+        <mu-button flat slot="right">LOGIN</mu-button>
+        <mu-button flat slot="right">LOGIN</mu-button>
+      </mu-appbar>
+    </div>
+    <div style="width: 100%;max-width:700px;margin: 0 auto;">
+      <mu-card style="width: 100%;margin-top:20px;">
         <mu-card-header title="Myron Avatar" sub-title="sub title">
           <mu-avatar slot="avatar">
             <img
               src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
           </mu-avatar>
         </mu-card-header>
-        <mu-card-media title="Image Title" sub-title="Image Sub Title">
-          <img
-            src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
+        <mu-card-media>
+          <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
         </mu-card-media>
         <mu-card-title title="Content Title" sub-title="Content Title"></mu-card-title>
         <mu-card-text>
@@ -20,8 +25,8 @@
           找到阳光与阴影奏出和谐的旋律。我要用一颗敏感赤诚的心迎接每一缕滑过指尖的阳光！
         </mu-card-text>
         <mu-card-actions>
-          <mu-button flat>Action 1</mu-button>
-          <mu-button flat>Action 2</mu-button>
+          <mu-button flat>人文</mu-button>
+          <mu-button flat>风景</mu-button>
         </mu-card-actions>
       </mu-card>
     </div>
