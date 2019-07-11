@@ -15,6 +15,22 @@
           </mu-avatar>
         </mu-card-header>
         <mu-card-media>
+          <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/DSC_2585.jpg">
+        </mu-card-media>
+        <mu-card-title title="家庭记录" sub-title="我也是有游泳池的人了"></mu-card-title>
+        <!-- <mu-card-text></mu-card-text> -->
+        <mu-card-actions>
+          <mu-button flat>杂事</mu-button>
+        </mu-card-actions>
+      </mu-card>
+      <mu-card class="card-style">
+        <mu-card-header title="Halo" sub-title="练习时长两年半业余摄影爱好者">
+          <mu-avatar slot="avatar">
+            <img
+              src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
+          </mu-avatar>
+        </mu-card-header>
+        <mu-card-media>
           <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/DSC_9013.jpg">
         </mu-card-media>
         <mu-card-title title="家庭记录" sub-title="小破孩永远精力旺盛，你总猜不到他想穿哪片草，爬哪棵树"></mu-card-title>
