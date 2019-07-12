@@ -17,6 +17,9 @@
           </mu-card-header>
           <mu-card-media>
             <template v-if="item.images.length>1">
+              <mu-carousel-item v-for="image in item.images" :key="image.url">
+                <img :src="image.url">
+              </mu-carousel-item>
             </template>
             <template v-else>
               <img :src="item.thumbnail">
