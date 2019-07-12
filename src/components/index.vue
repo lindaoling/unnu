@@ -17,9 +17,11 @@
           </mu-card-header>
           <mu-card-media>
             <template v-if="item.images.length>1">
-              <mu-carousel-item v-for="image in item.images" :key="image.url">
-                <img :src="image.url">
-              </mu-carousel-item>
+              <mu-carousel transition="fade">
+                <mu-carousel-item v-for="imgItem in item.images" :key="imgItem.url">
+                  <img :src="imgItem.url">
+                </mu-carousel-item>
+              </mu-carousel>
             </template>
             <template v-else>
               <img :src="item.thumbnail">
@@ -71,6 +73,13 @@
     padding: 2px 8px;
 
   }
+            
+            
+.mu-carousel-item>img {
+    min-width: none;
+    max-width: 100%;
+    min-height: 100%;
+}
   .mu-card {
     -webkit-box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
