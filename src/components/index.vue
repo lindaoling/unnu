@@ -66,20 +66,14 @@
     padding: 0;
     margin: 0;
   }
-  .mu-card-title-container{
+  .mu-card-title-container,.mu-card-header{
     padding: 8px;
   }
   .mu-card-text {
     padding: 2px 8px;
 
   }
-            
-            
-.mu-carousel-item>img {
-    min-width: none;
-    max-width: 100%;
-    min-height: 100%;
-}
+
   .mu-card {
     -webkit-box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
