@@ -37,6 +37,13 @@
         </mu-card>
       </template>
     </div>
+    <footer class="footer">
+      <div style="width: 100%;max-width:1000px;margin: 0 auto;text-align:center">
+        <span class="copyright">
+          © 2019 unnu.me
+        </span>
+      </div>
+    </footer>
   </div>
 </template>
 <script>
@@ -62,6 +69,7 @@
 
 </script>
 <style lang="scss">
+
   .container {
     padding: 0;
     margin: 0;
@@ -83,5 +91,12 @@
     width: 100%;
     margin-top: 20px;
   }
-
+  .footer{
+    height: 100px;
+    width: 100%;
+    padding: 40px;
+    .copyright{
+      color: #999;
+    }
+  }
 </style>
