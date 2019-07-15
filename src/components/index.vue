@@ -1,25 +1,25 @@
 <template>
   <div>
-    <div style="background-color: #f5f5f5;">
+    <div style="background-color: #f5f5f5;border-bottom: 1px solid #d4d4d4">
       <mu-appbar style="width: 100%;max-width:1000px;margin: 0 auto;" z-depth="0" title="UNNU">
         <mu-button flat slot="right">Photo</mu-button>
         <mu-button flat slot="right">Article</mu-button>
       </mu-appbar>
     </div>
-    <div style="width: 100%;max-width:700px;margin: 0 auto;">
+    <div style="width: 100%;max-width:600px;margin: 0 auto;">
       <template v-for="item in list">
         <mu-card class="card-style" :key="item.title">
-          <mu-card-header title="Halo" sub-title="练习时长两年半业余摄影爱好者">
+          <mu-card-header title="Halo" sub-title="练习时长两年半业余摄影爱好者" style="    border-bottom: 1px solid #efefef;">
             <mu-avatar slot="avatar">
               <img
-                src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
+                src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
             </mu-avatar>
           </mu-card-header>
           <mu-card-media>
             <template v-if="item.images.length>1">
               <mu-carousel transition="fade">
                 <mu-carousel-item v-for="imgItem in item.images" :key="imgItem.url">
-                  <img :src="imgItem.url">
+                  <img :src="imgItem.url" style="width:100%;">
                 </mu-carousel-item>
               </mu-carousel>
             </template>
@@ -36,6 +36,9 @@
           </mu-card-actions>
         </mu-card>
       </template>
+      <mu-flex justify-content="center">
+        <mu-pagination v-show="pagination.total_count>10" @change="pageChange" :total="pagination.total_count" :page-size="10" :page-count="5" :current.sync="query.p" style="margin: 20px 0px;"></mu-pagination>
+      </mu-flex>
     </div>
     <footer class="footer">
       <div style="width: 100%;max-width:1000px;margin: 0 auto;text-align:center">
@@ -54,17 +57,42 @@
     name: 'index',
     data() {
       return {
+        query:{
+          p:1
+        },
+        pagination:{
+          total_count:0,
+          total_page:0
+        },
         list: []
       }
     },
-    created() {
-      getList(this.$route.query).then(response => {
-        this.list = response.data
-      }).catch(error => {
-
-      })
+    watch:{
+      query:{
+        handler (){
+          this.getRemoteList()
+        },
+        deep:true,
+        immediate : true
+      }
     },
-    methods: {}
+    created() {
+      
+    },
+    methods: {
+      pageChange(p){
+        this.$router.push({query:{p:p}})
+        console.log(p)
+      },
+      getRemoteList(){
+        getList(this.$route.query).then(response => {
+          this.list = response.data
+          this.pagination = response.pagination
+        }).catch(error => {
+
+        })
+      }
+    }
   }
 
 </script>
@@ -75,7 +103,7 @@
     margin: 0;
   }
   .mu-card-title-container,.mu-card-header{
-    padding: 8px;
+    padding: 8px 12px;
   }
   .mu-card-text {
     padding: 2px 8px;
