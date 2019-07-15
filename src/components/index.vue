@@ -28,12 +28,6 @@
             </template>
           </mu-card-media>
           <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
-          <!-- <mu-card-text>
-            {{item.content}}
-          </mu-card-text> -->
-          <mu-card-actions>
-            <mu-button flat>杂事</mu-button>
-          </mu-card-actions>
         </mu-card>
       </template>
       <mu-flex justify-content="center">
