@@ -6,7 +6,7 @@
         <mu-button flat slot="right">Article</mu-button>
       </mu-appbar>
     </div>
-    <div style="width: 100%;max-width:600px;margin: 0 auto;">
+    <div style="width: 100%;max-width:600px;margin: 60px auto;">
       <template v-for="item in list">
         <mu-card class="card-style" :key="item.title">
           <mu-card-header title="Halo" sub-title="练习时长两年半业余摄影爱好者" style="    border-bottom: 1px solid #efefef;">
@@ -116,7 +116,7 @@
 
   .card-style {
     width: 100%;
-    margin-top: 20px;
+    margin-bottom: 60px;
   }
   .footer{
     height: 100px;
