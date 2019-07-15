@@ -1,49 +1,57 @@
 <template>
   <div>
-    <div style="background-color: #f5f5f5;">
+    <div style="background-color: #f5f5f5;border-bottom: 1px solid rgba(0,0,0,.0975);">
       <mu-appbar style="width: 100%;max-width:1000px;margin: 0 auto;" z-depth="0" title="UNNU">
         <mu-button flat slot="right">Photo</mu-button>
         <mu-button flat slot="right">Article</mu-button>
       </mu-appbar>
     </div>
-    <div style="width: 100%;max-width:700px;margin: 0 auto;">
-      <template v-for="item in list">
-        <mu-card class="card-style" :key="item.title">
-          <mu-card-header title="Halo" sub-title="练习时长两年半业余摄影爱好者">
+    <div style="width: 100%;max-width:900px;margin: 0 auto;padding-top:60px;">
+      <mu-row>
+        <mu-col span="20" style="padding-right: 30px;">
+          <template v-for="item in list">
+          <mu-card class="card-style" :key="item.title">
+            <mu-card-header title="Halo" sub-title="练习时长两年半业余摄影爱好者">
+              <mu-avatar slot="avatar">
+                <img
+                  src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
+              </mu-avatar>
+            </mu-card-header>
+            <mu-card-media>
+              <template v-if="item.images.length>1">
+                <mu-carousel transition="fade">
+                  <mu-carousel-item v-for="imgItem in item.images" :key="imgItem.url">
+                    <img :src="imgItem.url">
+                  </mu-carousel-item>
+                </mu-carousel>
+              </template>
+              <template v-else>
+                <img :src="item.thumbnail">
+              </template>
+            </mu-card-media>
+            <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
+            <mu-card-actions>
+              <mu-button flat>杂事</mu-button>
+            </mu-card-actions>
+          </mu-card>
+        </template>
+        </mu-col>
+        <mu-col span="4">
+          <mu-card-header title="Halo">
             <mu-avatar slot="avatar">
-              <img
-                src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
+              <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/44309794_761759400824774_6971370969521107371_n.jpg">
             </mu-avatar>
           </mu-card-header>
-          <mu-card-media>
-            <template v-if="item.images.length>1">
-              <mu-carousel transition="fade">
-                <mu-carousel-item v-for="imgItem in item.images" :key="imgItem.url">
-                  <img :src="imgItem.url">
-                </mu-carousel-item>
-              </mu-carousel>
-            </template>
-            <template v-else>
-              <img :src="item.thumbnail">
-            </template>
-          </mu-card-media>
-          <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
-          <!-- <mu-card-text>
-            {{item.content}}
-          </mu-card-text> -->
-          <mu-card-actions>
-            <mu-button flat>杂事</mu-button>
-          </mu-card-actions>
-        </mu-card>
-      </template>
+        </mu-col>
+      </mu-row>
     </div>
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div style="width: 100%;max-width:1000px;margin: 0 auto;text-align:center">
         <span class="copyright">
           © 2019 unnu.me
         </span>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 <script>
@@ -89,7 +97,7 @@
 
   .card-style {
     width: 100%;
-    margin-top: 20px;
+    margin-bottom: 20px;
   }
   .footer{
     height: 100px;
