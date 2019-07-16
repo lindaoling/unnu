@@ -28,6 +28,9 @@
             </template>
           </mu-card-media>
           <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
+          <mu-card-actions v-if="item.tags.length>0">
+            <mu-button v-for="tag in item.tags" :key="tag.tag_id" flat @click="filterTag(tag.tag_id)" >{{tag.name}}</mu-button>
+          </mu-card-actions>
         </mu-card>
       </template>
       <mu-flex justify-content="center">
@@ -62,7 +65,7 @@
       }
     },
     watch:{
-      query:{
+      '$route.query':{
         handler (){
           this.getRemoteList()
         },
@@ -74,11 +77,19 @@
       
     },
     methods: {
+      filterTag(tag_id){
+        this.$router.push({
+          query:{
+            tag:tag_id
+          }
+        })
+      }, 
       pageChange(p){
         this.$router.push({query:{p:p}})
         console.log(p)
       },
       getRemoteList(){
+        console.log(this.$route.query)
         getList(this.$route.query).then(response => {
           this.list = response.data
           this.pagination = response.pagination
