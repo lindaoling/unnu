@@ -98,12 +98,11 @@
         })
       },
       pageChange(p) {
+        const queryParams = Object.assign({},this.$router.query,{p:p})
         this.$router.push({
-          query: {
-            p: p
-          }
+          query: queryParams
         })
-        console.log(p)
+        console.log(queryParams)
       },
       getRemoteList() {
         console.log(this.$route.query)
