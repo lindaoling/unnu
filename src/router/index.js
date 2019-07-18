@@ -10,13 +10,13 @@ export default new Router({
     {
       path: '/',
       name: 'Index',
-      redirect: '/u',
+      redirect: '/',
       component: _import('layout/layout'),
       meta: {
         title: 'UNNU.ME'
       },
       children: [{
-        path: '/u',
+        path: '/',
         name: 'Photo',
         meta: {
           title: '摄影'
