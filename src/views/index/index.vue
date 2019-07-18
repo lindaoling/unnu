@@ -12,7 +12,7 @@
             <template v-if="item.images.length>1">
               <mu-carousel transition="fade">
                 <mu-carousel-item v-for="imgItem in item.images" :key="imgItem.url">
-                  <img :src="imgItem.url" style="width:100%;">
+                  <img :src="imgItem.url">
                 </mu-carousel-item>
               </mu-carousel>
             </template>
@@ -61,13 +61,22 @@
           "sub_title": "加载中",
           "content": "加载中",
           "thumbnail": "https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/test/26073943_nCX5.gif",
-          "images": [{
-            "name": "",
-            "size": 0,
-            "url": "https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/test/26073943_nCX5.gif",
-            "uid": 0,
-            "status": ""
-          }],
+          "images": [
+            {
+              "name": "",
+              "size": 0,
+              "url": "https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/test/26073943_nCX5.gif",
+              "uid": 0,
+              "status": ""
+            },
+            {
+              "name": "",
+              "size": 0,
+              "url": "https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/d17c8338c1a1975a8a45517a09ae1a80.jpg",
+              "uid": 0,
+              "status": ""
+            }
+          ],
           "tags": []
         }]
       }
@@ -129,6 +138,11 @@
     padding: 8px 12px;
   }
 
+  .mu-carousel-item>img{
+    height: 100%;
+    min-width: 0;
+  }
+
   .mu-card-text {
     padding: 2px 8px;
 
@@ -137,6 +151,7 @@
   .mu-carousel {
     padding-bottom: 66.666666%;
     height: 0;
+    background-color: #eeeeee;
   }
 
   .mu-card {
