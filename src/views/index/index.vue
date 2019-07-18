@@ -28,8 +28,16 @@
         </mu-card>
       </template>
       <mu-flex justify-content="center">
-        <mu-pagination v-show="pagination.total_count>10" @change="pageChange" :total="pagination.total_count"
-          :page-size="10" :page-count="5" :current.sync="query.p" style="margin: 20px 0px;"></mu-pagination>
+        <mu-pagination 
+          v-show="pagination.total_count>10" 
+          @change="pageChange" 
+          :total="pagination.total_count"
+          :page-size="10" 
+          :page-count="5" 
+          :current="currentPage" 
+          style="margin: 20px 0px;"
+          >
+          </mu-pagination>
       </mu-flex>
     </div>
   </div>
@@ -44,9 +52,6 @@
     data() {
       return {
         loading: true,
-        query: {
-          p: 1
-        },
         pagination: {
           total_count: 0,
           total_page: 0
@@ -74,6 +79,11 @@
         },
         deep: true,
         immediate: true
+      }
+    },
+    computed:{
+      currentPage:function(){
+        return this.$route.query.p ? parseInt(this.$route.query.p) :1
       }
     },
     created() {
