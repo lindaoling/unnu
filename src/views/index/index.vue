@@ -31,18 +31,20 @@
         </mu-card-actions>
       </mu-card>
     </mu-container>
-    <mu-flex justify-content="center">
-      <mu-pagination 
-        v-show="pagination.total_count>10" 
-        @change="pageChange" 
-        :total="pagination.total_count"
-        :page-size="10" 
-        :page-count="5" 
-        :current="currentPage" 
-        style="margin: 20px 0px;"
-        >
-        </mu-pagination>
-    </mu-flex>
+    <mu-container>
+      <mu-flex justify-content="center">
+        <mu-pagination 
+          v-show="pagination.total_count>10" 
+          @change="pageChange" 
+          :total="pagination.total_count"
+          :page-size="10" 
+          :page-count="5" 
+          :current="currentPage" 
+          style="margin: 20px 0px;"
+          >
+          </mu-pagination>
+      </mu-flex>
+    </mu-container>
   </div>
 </template>
 <script>
