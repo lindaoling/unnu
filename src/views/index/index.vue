@@ -27,8 +27,7 @@
         </mu-card-media>
         <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
         <mu-card-actions v-if="item.tags.length>0">
-          <mu-button v-for="tag in item.tags" :key="tag.tag_id" flat @click="filterTag(tag.tag_id)">{{tag.name}}
-          </mu-button>
+          <mu-button v-for="tag in item.tags" :key="tag.tag_id" flat @click="filterTag(tag.tag_id)" style="color: rgba(0,0,0,.54);font-size:12px;height:12px;line-height:12px;min-width:0;">#{{tag.name}} </mu-button>
         </mu-card-actions>
       </mu-card>
     </mu-container>
