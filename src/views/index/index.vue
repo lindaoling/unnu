@@ -7,9 +7,10 @@
           :disabled="$route.query.tag != undefined && $route.query.tag==tag.id">#{{tag.name}}</mu-button>
       </template>
     </mu-container> -->
-    <div>
-      <mu-row gutter fill style="padding:0;margin:0;">
-        <mu-col md="12" lg="8" xl="8" style="padding:0;">
+
+    <section>
+      <mu-row gutter fill>
+        <mu-col md="12" lg="8" xl="8" :class="{ PCpaddingRight: !isMoble }">
           <mu-card class="card-style" v-for="item in list" :key="item.hash">
             <!-- <mu-card-header title="Halo" sub-title="练习时长两年半..." style="    border-bottom: 1px solid #efefef;">
                 <mu-avatar slot="avatar">
@@ -60,8 +61,7 @@
 
         </mu-col>
       </mu-row>
-
-    </div>
+    </section>
 
   </div>
 </template>
@@ -115,6 +115,9 @@
       }
     },
     computed: {
+      isMoble:function () {
+        return this.windowInnerWidth < 992
+      },
       currentPage: function () {
         return this.$route.query.p ? parseInt(this.$route.query.p) : 1
       }
@@ -207,5 +210,7 @@
     width: 100%;
     margin-bottom: 60px;
   }
-
+  .PCpaddingRight{
+    padding-right: 30px;
+  }
 </style>
