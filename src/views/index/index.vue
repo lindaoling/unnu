@@ -84,7 +84,7 @@
     },
     computed: {
       isMoble: function () {
-        return window.innerWidth < 992
+        return this.windowInnerWidth < 992
       },
       currentPage: function () {
         return this.$route.query.p ? parseInt(this.$route.query.p) : 1
