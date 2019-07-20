@@ -3,6 +3,9 @@
     v-resize="resize">
     <div style="display:flex;flex-direction: column;flex:1;">
       <mu-card class="card-style" v-for="item in list" :key="item.hash">
+        <mu-card-header style="border-bottom: 1px solid #efefef;">
+          
+        </mu-card-header>
         <mu-card-media>
           <template v-if="item.images.length>1">
             <mu-carousel transition="fade">
