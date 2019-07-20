@@ -127,12 +127,14 @@
       },
       getRemoteList() {
         scrollTo(0)
+        this.$progress.start()
         console.log(this.$route.query)
         getList(this.$route.query).then(response => {
           this.list = response.data
           this.pagination = response.pagination
+          this.$progress.done()
         }).catch(error => {
-
+          this.$progress.done()
         })
       }
     }
