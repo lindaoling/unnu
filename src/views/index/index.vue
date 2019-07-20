@@ -37,7 +37,8 @@
       <mu-card>
         <mu-card-header title="Halo" sub-title="练习时长两年半..." style="    border-bottom: 1px solid #efefef;">
           <mu-avatar slot="avatar">
-            <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
+            <!-- <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg"> -->
+            <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/312047-P8I6YH-665.png">
           </mu-avatar>
         </mu-card-header>
         <mu-card-actions>
