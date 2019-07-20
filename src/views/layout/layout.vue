@@ -3,14 +3,17 @@
     <Top />
     <router-view />
     <Foot />
+    <BackToTop />
   </div>
 </template>
 <script>
 import Top from "./components/Top";
 import Foot from "./components/Foot";
+import BackToTop from "@/components/BackToTop";
 export default {
   name: 'Layout',
   components:{
+    BackToTop,
     Top,
     Foot
   }

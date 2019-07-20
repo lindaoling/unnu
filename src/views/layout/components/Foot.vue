@@ -2,7 +2,7 @@
   <footer class="footer">
     <div style="width: 100%;max-width:1000px;margin: 0 auto;text-align:center">
       <span class="copyright">
-        © 2019 unnu.me
+        © 2019 UNNU.ME
       </span>
     </div>
   </footer>
