@@ -1,68 +1,50 @@
 <template>
-  <div style="width: 100%;max-width:900px;margin: 26px auto;" v-resize="resize">
-    <!-- <mu-container class="button-wrapper">
-      <mu-button flat small to="/" :disabled="$route.query.tag == undefined">#全部</mu-button>
-      <template v-for="tag in tags">
-        <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}"
-          :disabled="$route.query.tag != undefined && $route.query.tag==tag.id">#{{tag.name}}</mu-button>
-      </template>
-    </mu-container> -->
-
-    <section>
-      <mu-row gutter fill>
-        <mu-col md="12" lg="8" xl="8" :class="{ PCpaddingRight: !isMoble }">
-          <mu-card class="card-style" v-for="item in list" :key="item.hash">
-            <!-- <mu-card-header title="Halo" sub-title="练习时长两年半..." style="    border-bottom: 1px solid #efefef;">
-                <mu-avatar slot="avatar">
-                  <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
-                </mu-avatar>
-              </mu-card-header> -->
-            <mu-card-media>
-              <template v-if="item.images.length>1">
-                <mu-carousel transition="fade">
-                  <mu-carousel-item v-for="imgItem in item.images" :key="imgItem.url">
-                    <img :src="imgItem.url">
-                  </mu-carousel-item>
-                </mu-carousel>
-              </template>
-              <template v-else>
-                <img :src="item.thumbnail">
-              </template>
-            </mu-card-media>
-            <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
-            <mu-card-actions v-if="item.tags.length>0">
-              <mu-button v-for="tag in item.tags" :key="tag.tag_id" flat @click="filterTag(tag.tag_id)"
-                style="color: rgba(0,0,0,.54);font-size:12px;height:12px;line-height:12px;min-width:0;">#{{tag.name}}
-              </mu-button>
-            </mu-card-actions>
-          </mu-card>
-          <div>
-            <mu-flex justify-content="center">
-              <mu-pagination v-show="pagination.total_count>10" @change="pageChange" :total="pagination.total_count"
-                :page-size="10" :page-count="5" :current="currentPage" style="margin: 20px 0px;">
-              </mu-pagination>
-            </mu-flex>
-          </div>
-        </mu-col>
-        <mu-col v-show="windowInnerWidth>=992" style="padding:0;">
-          <mu-card class="card-style">
-            <mu-card-header title="Halo" sub-title="练习时长两年半..." style="border-bottom: 1px solid #efefef;">
-              <mu-avatar slot="avatar">
-                <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
-              </mu-avatar>
-            </mu-card-header>
-            <mu-card-actions>
+  <div style="display: flex;flex-direction: row;justify-content: center;;width: 100%;max-width:900px;margin: 26px auto;"
+    v-resize="resize">
+    <div style="display:flex;flex-direction: column;flex:1;">
+      <mu-card class="card-style" v-for="item in list" :key="item.hash">
+        <mu-card-media>
+          <template v-if="item.images.length>1">
+            <mu-carousel transition="fade">
+              <mu-carousel-item v-for="imgItem in item.images" :key="imgItem.url">
+                <img :src="imgItem.url">
+              </mu-carousel-item>
+            </mu-carousel>
+          </template>
+          <template v-else>
+            <img :src="item.thumbnail">
+          </template>
+        </mu-card-media>
+        <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
+        <mu-card-actions v-if="item.tags.length>0">
+          <mu-button v-for="tag in item.tags" :key="tag.tag_id" flat @click="filterTag(tag.tag_id)"
+            style="color: rgba(0,0,0,.54);font-size:12px;height:12px;line-height:12px;min-width:0;">#{{tag.name}}
+          </mu-button>
+        </mu-card-actions>
+      </mu-card>
+      <!-- <div style="display:flex;flex-direction: center;"> -->
+        <mu-flex justify-content="center">
+        <mu-pagination v-show="pagination.total_count>10" @change="pageChange" :total="pagination.total_count"
+          :page-size="10" :page-count="5" :current="currentPage" style="margin: 20px 0px;">
+        </mu-pagination>
+        </mu-flex>
+      <!-- </div> -->
+    </div>
+    <div v-show="!isMoble" style="display:flex;flex-direction: column;width:30%;margin-left:28px;">
+      <mu-card>
+        <mu-card-header title="Halo" sub-title="练习时长两年半..." style="    border-bottom: 1px solid #efefef;">
+          <mu-avatar slot="avatar">
+            <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
+          </mu-avatar>
+        </mu-card-header>
+        <mu-card-actions>
               <template v-for="tag in tags">
                 <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}"
-                  :disabled="$route.query.tag != undefined && $route.query.tag==tag.id">#{{tag.name}}</mu-button>
+                  :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="    min-width: 40px;">#{{tag.name}}</mu-button>
               </template>
             </mu-card-actions>
-          </mu-card>
-
-        </mu-col>
-      </mu-row>
-    </section>
-
+      </mu-card>
+    </div>
   </div>
 </template>
 <script>
@@ -87,21 +69,7 @@
           total_count: 0,
           total_page: 0
         },
-        list: [{
-          "title": "加载中",
-          "hash": '000000000000000000',
-          "sub_title": "加载中",
-          "content": "加载中",
-          "thumbnail": "https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/test/26073943_nCX5.gif",
-          "images": [{
-            "name": "",
-            "size": 0,
-            "url": "https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/test/26073943_nCX5.gif",
-            "uid": 0,
-            "status": ""
-          }],
-          tags: [],
-        }],
+        list: [],
         tags: [],
       }
     },
@@ -115,8 +83,8 @@
       }
     },
     computed: {
-      isMoble:function () {
-        return this.windowInnerWidth < 992
+      isMoble: function () {
+        return window.innerWidth < 992
       },
       currentPage: function () {
         return this.$route.query.p ? parseInt(this.$route.query.p) : 1
@@ -136,7 +104,7 @@
       })
     },
     methods: {
-      resize () {
+      resize() {
         this.windowInnerWidth = window.innerWidth
         this.windowInnerHeight = window.innerHeight
         this.mobileHeaderMenu = this.windowInnerWidth < 600
@@ -161,11 +129,8 @@
         scrollTo(0)
         console.log(this.$route.query)
         getList(this.$route.query).then(response => {
-          // this.list = []
           this.list = response.data
-          console.log(this.list)
           this.pagination = response.pagination
-
         }).catch(error => {
 
         })
@@ -210,7 +175,9 @@
     width: 100%;
     margin-bottom: 60px;
   }
-  .PCpaddingRight{
+
+  .PCpaddingRight {
     padding-right: 30px;
   }
+
 </style>
