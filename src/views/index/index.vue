@@ -8,7 +8,7 @@
     </mu-container>
     <mu-container>
       <mu-card class="card-style" v-for="item in list" :key="item.hash">
-        <mu-card-header title="Halo" sub-title="练习时长两年半业余摄影爱好者" style="    border-bottom: 1px solid #efefef;">
+        <mu-card-header title="Halo" sub-title="练习时长两年半..." style="    border-bottom: 1px solid #efefef;">
           <mu-avatar slot="avatar">
             <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
           </mu-avatar>
@@ -77,13 +77,6 @@
               "url": "https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/test/26073943_nCX5.gif",
               "uid": 0,
               "status": ""
-            },
-            {
-              "name": "",
-              "size": 0,
-              "url": "https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/d17c8338c1a1975a8a45517a09ae1a80.jpg",
-              "uid": 0,
-              "status": ""
             }
           ],
           tags:[],
@@ -114,6 +107,8 @@
           }
         });
         this.tags=tmp
+      }).catch(error=>{
+        console.log(error)
       })
     },
     methods: {
