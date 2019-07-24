@@ -20,33 +20,31 @@
         </mu-card-media>
         <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
         <mu-card-actions v-if="item.tags.length>0">
-          <mu-button v-for="tag in item.tags" :key="tag.tag_id" flat @click="filterTag(tag.tag_id)"
-            style="color: rgba(0,0,0,.54);font-size:12px;height:12px;line-height:12px;min-width:0;">#{{tag.name}}
+          <mu-button small flat  v-for="tag in item.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}"
+            style="color: rgba(0,0,0,.54);max-width:40px;">#{{tag.name}}
           </mu-button>
         </mu-card-actions>
       </mu-card>
-      <!-- <div style="display:flex;flex-direction: center;"> -->
-        <mu-flex justify-content="center">
+      <mu-flex justify-content="center">
         <mu-pagination v-show="pagination.total_count>10" @change="pageChange" :total="pagination.total_count"
           :page-size="10" :page-count="5" :current="currentPage" style="margin: 20px 0px;">
         </mu-pagination>
-        </mu-flex>
-      <!-- </div> -->
+      </mu-flex>
     </div>
     <div v-show="!isMoble" style="display:flex;flex-direction: column;width:30%;margin-left:28px;">
       <mu-card>
-        <mu-card-header title="Halo" sub-title="练习时长两年半..." style="    border-bottom: 1px solid #efefef;">
+        <mu-card-header title="Halo" sub-title="练习时长两年半..." style="border-bottom: 1px solid #efefef;">
           <mu-avatar slot="avatar">
-            <!-- <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg"> -->
-            <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/312047-P8I6YH-665.png">
+            <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
+            <!-- <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/312047-P8I6YH-665.png"> -->
           </mu-avatar>
         </mu-card-header>
         <mu-card-actions>
-              <template v-for="tag in tags">
-                <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}"
-                  :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="    min-width: 40px;">#{{tag.name}}</mu-button>
-              </template>
-            </mu-card-actions>
+          <template v-for="tag in tags">
+            <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}"
+              :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="min-width: 40px;">#{{tag.name}}</mu-button>
+          </template>
+        </mu-card-actions>
       </mu-card>
     </div>
   </div>
@@ -113,13 +111,13 @@
         this.windowInnerHeight = window.innerHeight
         this.mobileHeaderMenu = this.windowInnerWidth < 600
       },
-      filterTag(tag_id) {
-        this.$router.push({
-          query: {
-            tag: tag_id
-          }
-        })
-      },
+      // filterTag(tag_id) {
+      //   this.$router.push({
+      //     query: {
+      //       tag: tag_id
+      //     }
+      //   })
+      // },
       pageChange(p) {
         const queryParams = Object.assign({}, this.$router.query, {
           p: p
