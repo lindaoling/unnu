@@ -4,7 +4,6 @@
     <div style="display:flex;flex-direction: column;flex:1;">
       <mu-card class="card-style" v-for="item in list" :key="item.hash">
         <mu-card-header style="border-bottom: 1px solid #efefef;">
-          
         </mu-card-header>
         <mu-card-media>
           <template v-if="item.images.length>1">
@@ -20,7 +19,7 @@
         </mu-card-media>
         <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
         <mu-card-actions v-if="item.tags.length>0">
-          <mu-button small flat  v-for="tag in item.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}"
+          <mu-button small flat v-for="tag in item.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}"
             style="color: rgba(0,0,0,.54);max-width:40px;">#{{tag.name}}
           </mu-button>
         </mu-card-actions>
@@ -42,7 +41,8 @@
         <mu-card-actions>
           <template v-for="tag in tags">
             <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}"
-              :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="min-width: 40px;">#{{tag.name}}</mu-button>
+              :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="min-width: 40px;">
+              #{{tag.name}}</mu-button>
           </template>
         </mu-card-actions>
       </mu-card>
@@ -137,37 +137,41 @@
 
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-
-  .mu-card-title-container,.mu-card-header {
+  .mu-card-title-container,
+  .mu-card-header {
     padding: 8px 12px;
   }
 
-  
+
 
   .mu-carousel {
     padding-bottom: 66.667%;
     height: 0;
     background-color: #eeeeee;
+
     .mu-carousel-item>img {
       max-height: 100%;
       max-width: 100%;
     }
   }
+
   .card-style {
     -webkit-box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     width: 100%;
     margin-bottom: 60px;
+
     .mu-card-text {
       padding: 2px 8px;
     }
-    .mu-card-media{
-      img{
-        margin:auto;
+
+    .mu-card-media {
+      img {
+        margin: auto;
         object-fit: contain;
       }
     }
-    
+
   }
 
   .PCpaddingRight {
