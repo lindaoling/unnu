@@ -111,13 +111,6 @@
         this.windowInnerHeight = window.innerHeight
         this.mobileHeaderMenu = this.windowInnerWidth < 600
       },
-      // filterTag(tag_id) {
-      //   this.$router.push({
-      //     query: {
-      //       tag: tag_id
-      //     }
-      //   })
-      // },
       pageChange(p) {
         const queryParams = Object.assign({}, this.$router.query, {
           p: p
@@ -144,40 +137,37 @@
 
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-  // .container {
-  //   padding: 0;
-  //   margin: 0;
-  // }
 
-  .mu-card-title-container,
-  .mu-card-header {
+  .mu-card-title-container,.mu-card-header {
     padding: 8px 12px;
   }
 
-  .mu-carousel-item>img {
-    height: 100%;
-    min-width: 0;
-  }
-
-  .mu-card-text {
-    padding: 2px 8px;
-
-  }
+  
 
   .mu-carousel {
-    padding-bottom: 66.666666%;
+    padding-bottom: 66.667%;
     height: 0;
     background-color: #eeeeee;
+    .mu-carousel-item>img {
+      max-height: 100%;
+      max-width: 100%;
+    }
   }
-
-  .mu-card {
+  .card-style {
     -webkit-box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
-  }
-
-  .card-style {
     width: 100%;
     margin-bottom: 60px;
+    .mu-card-text {
+      padding: 2px 8px;
+    }
+    .mu-card-media{
+      img{
+        margin:auto;
+        object-fit: contain;
+      }
+    }
+    
   }
 
   .PCpaddingRight {
