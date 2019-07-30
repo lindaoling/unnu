@@ -152,6 +152,7 @@
     .mu-carousel-item>img {
       max-height: 100%;
       max-width: 100%;
+      object-fit: contain;
     }
   }
 
@@ -160,15 +161,13 @@
     box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     width: 100%;
     margin-bottom: 60px;
-
     .mu-card-text {
       padding: 2px 8px;
     }
-
     .mu-card-media {
       img {
         margin: auto;
-        object-fit: contain;
+        
       }
     }
 
