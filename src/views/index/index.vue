@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex;flex-direction: row;justify-content: center;;width: 100%;max-width:900px;margin: 26px auto;"
+  <div style="display: flex;flex-direction: row;justify-content: center;;width: 100%;max-width:900px;margin: 120px auto 26px auto;"
     v-resize="resize">
     <div style="display:flex;flex-direction: column;flex:1;">
       <mu-card class="card-style" v-for="item in list" :key="item.hash">
@@ -93,6 +93,7 @@
       }
     },
     created() {
+      window.addEventListener('scroll', this.handleScroll);
       getTagList().then(res => {
         const tmp = []
         res.data.forEach(el => {
@@ -106,6 +107,9 @@
       })
     },
     methods: {
+      handleScroll(){
+        console.log(window.scrollY)
+      },
       resize() {
         this.windowInnerWidth = window.innerWidth
         this.windowInnerHeight = window.innerHeight

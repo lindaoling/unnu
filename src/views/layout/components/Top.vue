@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: #f5f5f5;border-bottom: 1px solid #d4d4d4">
+  <div class="top-wrap">
     <mu-appbar style="width: 100%;max-width:1000px;margin: 0 auto;background-color:transparent;" z-depth="0"
       title="UNNU">
       <router-link to="/" style="color:rgb(115, 115, 115)">
@@ -18,4 +18,12 @@
 
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
+.top-wrap{
+  background-color: #f5f5f5;border-bottom: 1px solid #d4d4d4;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  left: 0;
+  top: 0;
+}
 </style>
