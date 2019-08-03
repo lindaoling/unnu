@@ -31,7 +31,8 @@
       </mu-flex>
     </div>
     <div v-show="!isMoble" style="display:flex;flex-direction: column;width:30%;margin-left:28px;">
-      <mu-card>
+      <sticky :z-index="9000" :stickyTop="80">
+        <mu-card>
         <mu-card-header title="Halo" sub-title="练习时长两年半..." style="border-bottom: 1px solid #efefef;">
           <mu-avatar slot="avatar">
             <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
@@ -45,20 +46,22 @@
               #{{tag.name}}</mu-button>
           </template>
         </mu-card-actions>
-      </mu-card>
+        </mu-card>
+      </sticky>
     </div>
   </div>
 </template>
 <script>
   import {
     getList
-  } from "@/api/post";
+  } from "@/api/post"
   import {
     getTagList
-  } from "@/api/tag";
+  } from "@/api/tag"
   import {
     scrollTo
-  } from "@/utils/scrollTo";
+  } from "@/utils/scrollTo"
+  import Sticky from '@/components/Sticky'
   export default {
     name: 'Photo',
     data() {
@@ -74,6 +77,9 @@
         list: [],
         tags: [],
       }
+    },
+    components:{
+      Sticky
     },
     watch: {
       '$route.query': {
