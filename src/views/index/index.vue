@@ -157,7 +157,7 @@
   .mu-carousel {
     padding-bottom: 66.667%;
     height: 0;
-    background-color: #eeeeee;
+    // background-color: #eeeeee;
 
     .mu-carousel-item>img {
       max-height: 100%;
