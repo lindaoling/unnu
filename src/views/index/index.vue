@@ -10,7 +10,7 @@
         <mu-card-media>
           <template v-if="item.images.length>1">
             <mu-carousel transition="fade">
-              <mu-carousel-item v-for="imgItem in item.images" :key="imgItem.url">
+              <mu-carousel-item v-for="imgItem in item.images.slice(0,5)" :key="imgItem.url">
                 <img :src="imgItem.url">
               </mu-carousel-item>
             </mu-carousel>
@@ -19,7 +19,13 @@
             <img :src="item.thumbnail">
           </template>
         </mu-card-media>
-        <mu-card-title :title="item.title" :sub-title="item.content"></mu-card-title>
+        <mu-card-title :sub-title="item.sub_title || item.title"></mu-card-title>
+        <mu-card-text>
+          {{item.content}}
+          <router-link v-if="item.images.length>1" :to="{name:'Detail',params:{hash:item.hash}}" style="color: #2196f3;">
+            详情
+          </router-link>
+        </mu-card-text>
         <mu-card-actions v-if="item.tags.length>0">
           <mu-button small flat v-for="tag in item.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}"
             style="color: rgba(0,0,0,.54);max-width:40px;">#{{tag.name}}
