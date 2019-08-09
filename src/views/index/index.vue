@@ -1,8 +1,10 @@
 <template>
-  <div style="display: flex;flex-direction: row;justify-content: center;;width: 100%;max-width:900px;margin: 120px auto 26px auto;"
+  <div
+    style="display: flex;flex-direction: row;justify-content: center;width: 100%;max-width:900px;margin: 120px auto 26px auto;"
     v-resize="resize">
     <div style="display:flex;flex-direction: column;flex:1;">
       <mu-card class="card-style" v-for="item in list" :key="item.hash">
+        <!-- <mu-button small flat @click="showDetail(item)" style="color: rgba(0,0,0,.54);max-width:40px;">详情</mu-button> -->
         <mu-card-header style="border-bottom: 1px solid #efefef;">
         </mu-card-header>
         <mu-card-media>
@@ -31,21 +33,21 @@
       </mu-flex>
     </div>
     <div v-show="!isMoble" style="display:flex;flex-direction: column;width:30%;margin-left:28px;">
-      <sticky :z-index="9000" :stickyTop="80">
+      <sticky :z-index="999" :stickyTop="80">
         <mu-card>
-        <mu-card-header title="Halo" sub-title="练习时长两年半..." style="border-bottom: 1px solid #efefef;">
-          <mu-avatar slot="avatar">
-            <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
-            <!-- <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/312047-P8I6YH-665.png"> -->
-          </mu-avatar>
-        </mu-card-header>
-        <mu-card-actions>
-          <template v-for="tag in tags">
-            <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}"
-              :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="min-width: 40px;">
-              #{{tag.name}}</mu-button>
-          </template>
-        </mu-card-actions>
+          <mu-card-header title="Halo" sub-title="练习时长两年半..." style="border-bottom: 1px solid #efefef;">
+            <mu-avatar slot="avatar">
+              <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
+              <!-- <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/312047-P8I6YH-665.png"> -->
+            </mu-avatar>
+          </mu-card-header>
+          <mu-card-actions>
+            <template v-for="tag in tags">
+              <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}"
+                :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="min-width: 40px;">
+                #{{tag.name}}</mu-button>
+            </template>
+          </mu-card-actions>
         </mu-card>
       </sticky>
     </div>
@@ -66,6 +68,7 @@
     name: 'Photo',
     data() {
       return {
+        showChild: true,
         mobileHeaderMenu: false,
         windowInnerWidth: 0,
         windowInnerHeight: 0,
@@ -76,9 +79,10 @@
         },
         list: [],
         tags: [],
+        detail:{} //给子组合用的
       }
     },
-    components:{
+    components: {
       Sticky
     },
     watch: {
@@ -99,6 +103,7 @@
       }
     },
     created() {
+      // this.getRemoteList()
       window.addEventListener('scroll', this.handleScroll);
       getTagList().then(res => {
         const tmp = []
@@ -113,8 +118,21 @@
       })
     },
     methods: {
-      handleScroll(){
-        console.log(window.scrollY)
+      showDetail(detail){
+        this.detail=detail
+        console.log(detail)
+        this.$router.push(
+          {
+            name:'Detail',
+            params:{
+              detail:detail,
+              hash:detail.hash
+            }
+          }
+        )
+      },
+      handleScroll() {
+        // console.log(window.scrollY)
       },
       resize() {
         this.windowInnerWidth = window.innerWidth
@@ -147,6 +165,7 @@
 
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
+  
   .mu-card-title-container,
   .mu-card-header {
     padding: 8px 12px;
@@ -171,13 +190,15 @@
     box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     width: 100%;
     margin-bottom: 60px;
+
     .mu-card-text {
       padding: 2px 8px;
     }
+
     .mu-card-media {
       img {
         margin: auto;
-        
+
       }
     }
 

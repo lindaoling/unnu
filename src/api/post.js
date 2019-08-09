@@ -8,3 +8,9 @@ export function getList (params) {
     params: params
   })
 }
+export function read (hash) {
+  return request({
+    url: `${ATRICLE}/${hash}`,
+    method: 'get'
+  })
+}

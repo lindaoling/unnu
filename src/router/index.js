@@ -15,14 +15,25 @@ export default new Router({
       meta: {
         title: 'UNNU.ME'
       },
-      children: [{
-        path: '/',
-        name: 'Photo',
-        meta: {
-          title: '摄影'
+      children: [
+        {
+          path: '/',
+          name: 'Photo',
+          meta: {
+            title: '摄影'
+          },
+          component: _import('index/index'),
+          children: []
         },
-        component: _import('index/index')
-      }]
+        {
+          path: '/:hash',
+          name: 'Detail',
+          meta: {
+            title: '详情'
+          },
+          component: _import('index/detail')
+        }
+      ]
     }
   ]
 })
