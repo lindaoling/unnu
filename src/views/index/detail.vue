@@ -10,7 +10,7 @@
         </mu-card-media>
         <mu-card-title :title="detail.title" :sub-title="detail.content"></mu-card-title>
         <mu-card-actions v-if="detail.tags.length>0">
-          <mu-button small flat v-for="tag in detail.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}"
+          <mu-button small flat v-for="tag in detail.tags" :key="tag.tag_id"
             style="color: rgba(0,0,0,.54);max-width:40px;">#{{tag.name}}
           </mu-button>
         </mu-card-actions>
