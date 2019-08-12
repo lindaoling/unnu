@@ -1,15 +1,14 @@
 <template>
-  <div style="display: flex;flex-direction: row;justify-content: center;width: 100%;max-width:900px;margin: 120px auto 26px auto;" v-resize="resize">
+  <div style="display: flex;flex-direction: row;justify-content: center;width: 100%;max-width:900px;margin: 120px auto 26px auto;">
     <div style="display:flex;flex-direction: column;flex:1;">
       <mu-card class="card-style" >
         <mu-card-header style="border-bottom: 1px solid #efefef;">
         </mu-card-header>
-        <mu-card-media>
-          <!-- <img v-for="item in detail.images" :key="item.uid" :src="item.url"> -->
+        <mu-card-media v-if="detail.images">
           <img v-for="item in detail.images" :key="item.uid" v-lazy="item.url" />
         </mu-card-media>
         <mu-card-title :title="detail.title" :sub-title="detail.content"></mu-card-title>
-        <mu-card-actions v-if="detail.tags.length>0">
+        <mu-card-actions v-if="detail.tags">
           <mu-button small flat v-for="tag in detail.tags" :key="tag.tag_id" style="color: rgba(0,0,0,.54);max-width:40px;">#{{tag.name}}</mu-button>
         </mu-card-actions>
       </mu-card>
@@ -25,9 +24,7 @@
     
     data() {
       return {
-        detail:{
-          images:[]
-        }
+        detail:{}
       }
     },
     watch: {
@@ -51,7 +48,7 @@
       }
     },
     created() {
-      if(this.$route.params.detail){
+      if(this.$route.params.detail != undefined){
         this.detail=this.$route.params.detail
       }else{
         this.getRemoteContent()
