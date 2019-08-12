@@ -1,11 +1,12 @@
 <template>
-  <div style="display: flex;flex-direction: row;justify-content: center;width: 100%;max-width:900px;margin: 120px auto 26px auto;">
+  <div style="display: flex;flex-direction: row;justify-content: center;width: 100%;max-width:600px;margin: 120px auto 26px auto;">
     <div style="display:flex;flex-direction: column;flex:1;">
       <mu-card class="card-style" >
         <mu-card-header style="border-bottom: 1px solid #efefef;">
         </mu-card-header>
         <mu-card-media v-if="detail.images">
-          <img v-for="item in detail.images" :key="item.uid" v-lazy="item.url" />
+          <!-- <img v-for="item in detail.images" :key="item.uid" v-lazy="item.url" /> -->
+          <img v-for="item in detail.images" :key="item.uid" :src="item.url" />
         </mu-card-media>
         <mu-card-title :title="detail.title" :sub-title="detail.content"></mu-card-title>
         <mu-card-actions v-if="detail.tags">
