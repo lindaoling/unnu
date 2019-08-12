@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex;flex-direction: row;justify-content: center;width: 100%;max-width:600px;margin: 120px auto 26px auto;">
+  <div style="display: flex;flex-direction: row;justify-content: center;width: 100%;max-width:700px;margin: 120px auto 26px auto;">
     <div style="display:flex;flex-direction: column;flex:1;">
       <mu-card class="card-style" >
         <mu-card-header style="border-bottom: 1px solid #efefef;">
