@@ -146,7 +146,7 @@
         this.mobileHeaderMenu = this.windowInnerWidth < 600
       },
       pageChange(p) {
-        const queryParams = Object.assign({}, this.$router.query, {
+        const queryParams = Object.assign({}, this.$route.query, {
           p: p
         })
         this.$router.push({

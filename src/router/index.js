@@ -5,7 +5,7 @@ const _import = require('./_import_' + process.env.NODE_ENV)
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
@@ -25,13 +25,21 @@ export default new Router({
           component: _import('index/index'),
           children: []
         },
+        // {
+        //   path: '/:hash',
+        //   name: 'Detail',
+        //   meta: {
+        //     title: '详情'
+        //   },
+        //   component: _import('index/detail')
+        // },
         {
-          path: '/:hash',
-          name: 'Detail',
+          path: '/porn',
+          name: 'Porn',
           meta: {
-            title: '详情'
+            title: 'Porn'
           },
-          component: _import('index/detail')
+          component: _import('index/porn')
         }
       ]
     }
