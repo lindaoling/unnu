@@ -22,9 +22,9 @@
         <mu-card-title :sub-title="item.sub_title || item.title"></mu-card-title>
         <mu-card-text>
           {{item.content}}
-          <router-link v-if="item.images.length>1" :to="{name:'Detail',params:{hash:item.hash}}" style="color: #2196f3;">
+          <!-- <router-link v-if="item.images.length>1" :to="{name:'Detail',params:{hash:item.hash}}" style="color: #2196f3;">
             详情
-          </router-link>
+          </router-link> -->
         </mu-card-text>
         <mu-card-actions v-if="item.tags.length>0">
           <mu-button small flat v-for="tag in item.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}"
