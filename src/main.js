@@ -3,10 +3,13 @@ import App from './App'
 import router from './router'
 // import MuseUI from 'muse-ui'
 // import 'muse-ui/dist/muse-ui.css'
+import Message from 'muse-ui-message';
 import VueLazyload from 'vue-lazyload'
 import NProgress from 'muse-ui-progress'
 import 'muse-ui-progress/dist/muse-ui-progress.css'
+import Toast from 'muse-ui-toast';
 Vue.use(VueLazyload)
+Vue.use(Toast)
 // Vue.use(MuseUI)
 Vue.use(NProgress, {
   zIndex: 2000, // progress z-index

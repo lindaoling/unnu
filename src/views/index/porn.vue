@@ -20,7 +20,10 @@
           <mu-button :href="scope.row.torrent_link" flat color="primary">Torrent</mu-button>
           <mu-button :href="`magnet:?xt=urn:btih:${scope.row.info_hash}&dn=${scope.row.title}&tr=http%3A%2F%2Fsukebei.tracker.wf%3A8888%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce`" flat color="primary">Magnet</mu-button>
         </td> -->
-        <td> magnet:?xt=urn:btih:{{ scope.row.info_hash}}</td>
+        <td class="is-right"> 
+          <!-- <span>magnet:?xt=urn:btih:{{ scope.row.info_hash}}</span> -->
+          <mu-button flat color="primary" v-clipboard:copy="`magnet:?xt=urn:btih:${scope.row.info_hash}`" v-clipboard:success="clipboardSuccess">复制磁链</mu-button>
+        </td>
         <td class="is-right">{{scope.row.size}}</td>
       </template>
     </mu-data-table>
@@ -36,8 +39,12 @@
 </template>
 <script>
 import { getList } from "@/api/porn";
+import clipboard from '@/directive/clipboard/index.js' // use clipboard by v-directive
 export default {
   name:'PornList',
+  directives: {
+    clipboard
+  },
   data () {
     return {
       loadingData:true,
@@ -50,9 +57,9 @@ export default {
         p:1
       },
       columns: [
-          { title: 'Title', align: 'left',},
+          { title: 'Title', align: 'center',},
           // { title: 'Category',width: 150, align: 'left'},
-          { title: 'Link', align: 'left'}
+          { title: 'Link', width: 120,align: 'center'}
           // { title: 'Size',width: 120, align: 'left'}
       ],
       list: []
@@ -73,6 +80,9 @@ export default {
     }
   },
   methods:{
+    clipboardSuccess(){
+      this.$toast.success('复制成功！');
+    },
     filter(){
       this.$router.push(
         {
