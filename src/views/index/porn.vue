@@ -24,7 +24,7 @@
           <!-- <span>magnet:?xt=urn:btih:{{ scope.row.info_hash}}</span> -->
           <mu-button flat color="primary" v-clipboard:copy="`magnet:?xt=urn:btih:${scope.row.info_hash}`" v-clipboard:success="clipboardSuccess">复制磁链</mu-button>
         </td>
-        <td class="is-right">{{scope.row.size}}</td>
+        <!-- <td class="is-right">{{scope.row.size}}</td> -->
       </template>
     </mu-data-table>
     <div style="padding:8px 10px;">
