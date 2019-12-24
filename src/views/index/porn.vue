@@ -59,7 +59,7 @@ export default {
       columns: [
           { title: 'Title', align: 'center',},
           // { title: 'Category',width: 150, align: 'left'},
-          { title: 'Link', width: 120,align: 'center'}
+          { title: 'Link', width: 140,align: 'center'}
           // { title: 'Size',width: 120, align: 'left'}
       ],
       list: []
