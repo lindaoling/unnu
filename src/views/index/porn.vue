@@ -1,5 +1,5 @@
 <template>
-<mu-container style="margin: 120px auto 26px auto;">
+<mu-container style="margin: 80px auto 26px auto;padding:0;">
   <mu-form :model="form" label-position="top" label-width="100">
     <mu-form-item prop="k" label="Search" :label-float="true">
       <mu-text-field v-model="form.k" @keyup.enter.native="filter"></mu-text-field>
@@ -15,11 +15,12 @@
     :data="list">
       <template slot-scope="scope">
         <td>{{scope.row.title}}</td>
-        <td>{{scope.row.category}}</td>
-        <td>
+        <!-- <td>{{scope.row.category}}</td> -->
+        <!-- <td>
           <mu-button :href="scope.row.torrent_link" flat color="primary">Torrent</mu-button>
           <mu-button :href="`magnet:?xt=urn:btih:${scope.row.info_hash}&dn=${scope.row.title}&tr=http%3A%2F%2Fsukebei.tracker.wf%3A8888%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce`" flat color="primary">Magnet</mu-button>
-        </td>
+        </td> -->
+        <td> magnet:?xt=urn:btih:{{ scope.row.info_hash}}</td>
         <td class="is-right">{{scope.row.size}}</td>
       </template>
     </mu-data-table>
@@ -49,10 +50,10 @@ export default {
         p:1
       },
       columns: [
-          { title: 'Title', align: 'center',},
-          { title: 'Category',width: 150, align: 'center'},
-          { title: 'Link',width: 250, align: 'center'},
-          { title: 'Size',width: 120, align: 'center'}
+          { title: 'Title', align: 'left',},
+          // { title: 'Category',width: 150, align: 'left'},
+          { title: 'Link', align: 'left'}
+          // { title: 'Size',width: 120, align: 'left'}
       ],
       list: []
     };
