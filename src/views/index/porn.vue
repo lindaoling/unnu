@@ -39,7 +39,8 @@
 </template>
 <script>
 import { getList } from "@/api/porn";
-import clipboard from '@/directive/clipboard/index.js' // use clipboard by v-directive
+import clipboard from '@/directive/clipboard' // use clipboard by v-directive
+import { scrollTo } from '@/utils/scrollTo' // use clipboard by v-directive
 export default {
   name:'PornList',
   directives: {
@@ -96,6 +97,7 @@ export default {
         this.loadingData=false
         this.list=response.data
         this.pagination = response.pagination
+        scrollTo(0)
       })
     },
     pageChange(p) {
