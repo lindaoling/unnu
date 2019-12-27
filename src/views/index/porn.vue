@@ -1,6 +1,6 @@
 <template>
 <mu-container style="margin: 80px auto 26px auto;padding:0;">
-  <mu-form :model="form" label-position="top" label-width="100">
+  <mu-form :model="form" label-position="top" label-width="100" @submit.native.prevent>
     <mu-form-item prop="k" label="Search" :label-float="true">
       <mu-text-field v-model="form.k" @keyup.enter.native="filter"></mu-text-field>
     </mu-form-item>
@@ -85,11 +85,11 @@ export default {
       this.$toast.success('复制成功！');
     },
     filter(){
-      this.$router.push(
-        {
-          query:this.form
-        }
-      )
+      const param={
+        query:this.form
+      }
+      // console.log(param)
+      this.$router.push(param)
     },
     getRemoteList(){
       this.loadingData=true
