@@ -9,7 +9,7 @@
         </mu-card-header>
         <mu-card-media>
           <template v-if="item.images.length>1">
-            <mu-carousel transition="fade">
+            <mu-carousel transition="fade" hide-indicators >
               <mu-carousel-item v-for="imgItem in item.images.slice(0,5)" :key="imgItem.url">
                 <img :src="imgItem.url">
               </mu-carousel-item>
@@ -19,7 +19,7 @@
             <img :src="item.thumbnail">
           </template>
         </mu-card-media>
-        <mu-card-title :sub-title="item.sub_title || item.title"></mu-card-title>
+        <mu-card-title :title="item.title || ''" :sub-title="item.sub_title || ''"></mu-card-title>
         <mu-card-text>
           {{item.content}}
           <!-- <router-link v-if="item.images.length>1" :to="{name:'Detail',params:{hash:item.hash}}" style="color: #2196f3;">
@@ -174,7 +174,7 @@
   
   .mu-card-title-container,
   .mu-card-header {
-    padding: 8px 12px;
+    padding: 8px 16px;
   }
 
 
@@ -198,7 +198,7 @@
     margin-bottom: 60px;
 
     .mu-card-text {
-      padding: 2px 8px;
+      padding: 2px 16px;
     }
 
     .mu-card-media {
