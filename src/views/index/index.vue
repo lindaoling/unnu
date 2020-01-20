@@ -7,28 +7,27 @@
         <!-- <mu-button small flat @click="showDetail(item)" style="color: rgba(0,0,0,.54);max-width:40px;">详情</mu-button> -->
         <mu-card-header style="border-bottom: 1px solid #efefef;">
         </mu-card-header>
-        <mu-card-media>
-          <template v-if="item.images.length>1">
+        <template v-if="item.images.length>1">
+          <!-- <mu-card-media> -->
             <mu-carousel transition="fade" hide-indicators >
               <mu-carousel-item v-for="imgItem in item.images.slice(0,5)" :key="imgItem.url">
                 <img :src="imgItem.url">
               </mu-carousel-item>
             </mu-carousel>
-          </template>
-          <template v-else>
+          <!-- </mu-card-media> -->
+        </template>
+        <template v-else>
+          <mu-card-media :style="'padding-bottom:'+item.scale+'%'">
             <img :src="item.thumbnail">
-          </template>
-        </mu-card-media>
+          </mu-card-media>
+        </template>
         <mu-card-title :title="item.title || ''" :sub-title="item.sub_title || ''"></mu-card-title>
         <mu-card-text>
           {{item.content}}
-          <!-- <router-link v-if="item.images.length>1" :to="{name:'Detail',params:{hash:item.hash}}" style="color: #2196f3;">
-            详情
-          </router-link> -->
         </mu-card-text>
         <mu-card-actions v-if="item.tags.length>0">
-          <mu-button small flat v-for="tag in item.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}"
-            style="color: rgba(0,0,0,.54);max-width:40px;">#{{tag.name}}
+          <mu-button small flat v-for="tag in item.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}" style="color: rgba(0,0,0,.54);max-width:40px;">
+            #{{tag.name}}
           </mu-button>
         </mu-card-actions>
       </mu-card>
@@ -159,7 +158,17 @@
         this.$progress.start()
         console.log(this.$route.query)
         getList(this.$route.query).then(response => {
+          response.data.forEach(el => {
+            el.scale = 0
+            el.images.forEach(imgitem => {
+              imgitem.scale = (imgitem.height/imgitem.width)>1.25?125:(imgitem.height/imgitem.width*100)
+              if(imgitem.scale > el.scale){
+                el.scale = imgitem.scale
+              }
+            });
+          });
           this.list = response.data
+          // console.log(this.list)
           this.pagination = response.pagination
           this.$progress.done()
         }).catch(error => {
@@ -172,22 +181,26 @@
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
   
-  .mu-card-title-container,
-  .mu-card-header {
+  .mu-card-title-container,.mu-card-header {
     padding: 8px 16px;
   }
-
-
-
   .mu-carousel {
     padding-bottom: 66.667%;
     height: 0;
-    // background-color: #eeeeee;
-
-    .mu-carousel-item>img {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
+    background-color: #eeeeee;
+    // position: relative;
+    .mu-carousel-item{
+      img{
+        // border: 1px solid #000;
+        // max-height: 100%;
+        // max-width: 100%;
+        object-fit: contain;
+        // position: absolute;
+        // left: 0;
+        // top: 0;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
@@ -202,12 +215,17 @@
     }
 
     .mu-card-media {
+      overflow: hidden;
+      position: relative;
       img {
-        margin: auto;
-
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
     }
-
   }
 
   .PCpaddingRight {
