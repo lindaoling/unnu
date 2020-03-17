@@ -1,14 +1,16 @@
 <template>
-  <div class="top-wrap">
-    <mu-appbar style="width: 100%;max-width:1000px;margin: 0 auto;background-color:transparent;" z-depth="0"
-      title="UNNU">
-      <router-link to="/" style="color:rgb(115, 115, 115)">
-        unnu.me
-      </router-link>
-      <mu-button flat slot="right">Photo</mu-button>
-      <mu-button flat slot="right">Article</mu-button>
-    </mu-appbar>
-  </div>
+  <nav class="header-wrap" justify-content="center">
+    <div class="header-placeholder"></div>
+    <div class="header-nav-container">
+      <mu-appbar z-depth="0" title="UNNU">
+        <router-link to="/" style="color:rgb(115, 115, 115)">
+          unnu.me
+        </router-link>
+        <mu-button flat slot="right">Photo</mu-button>
+        <mu-button flat slot="right">Article</mu-button>
+      </mu-appbar>
+    </div>
+  </nav>
 </template>
 
 <script>
@@ -18,12 +20,29 @@
 
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-.top-wrap{
-  background-color: #f5f5f5;border-bottom: 1px solid #d4d4d4;
-  position: fixed;
+$nav-height:54px;
+.header-wrap{
+  position: relative;
   width: 100%;
   z-index: 999;
-  left: 0;
-  top: 0;
+  
+  .header-placeholder{
+    height: $nav-height;
+  }
+  .header-nav-container{
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #d4d4d4;
+    width: 100%;
+    height: $nav-height;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  .mu-appbar{
+    border-bottom: 1px solid #d4d4d4;
+    max-width: 935px;
+    margin: 0 auto;
+    height: $nav-height;
+  }
 }
 </style>

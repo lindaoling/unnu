@@ -1,62 +1,55 @@
 <template>
-  <div
-    style="display: flex;flex-direction: row;justify-content: center;width: 100%;max-width:900px;margin: 120px auto 26px auto;"
-    v-resize="resize">
-    <div style="display:flex;flex-direction: column;flex:1;">
-      <mu-card class="card-style" v-for="item in list" :key="item.hash">
-        <!-- <mu-button small flat @click="showDetail(item)" style="color: rgba(0,0,0,.54);max-width:40px;">详情</mu-button> -->
-        <mu-card-header style="border-bottom: 1px solid #efefef;">
-        </mu-card-header>
-        <template v-if="item.images.length>1">
-          <!-- <mu-card-media> -->
-            <mu-carousel transition="fade" hide-indicators >
-              <mu-carousel-item v-for="imgItem in item.images.slice(0,5)" :key="imgItem.url">
-                <img :src="imgItem.url">
-              </mu-carousel-item>
-            </mu-carousel>
-          <!-- </mu-card-media> -->
-        </template>
-        <template v-else>
-          <mu-card-media :style="'padding-bottom:'+item.scale+'%'">
-            <img :src="item.thumbnail">
-          </mu-card-media>
-        </template>
-        <mu-card-title :title="item.title || ''" :sub-title="item.sub_title || ''"></mu-card-title>
-        <mu-card-text>
-          {{item.content}}
-        </mu-card-text>
-        <mu-card-actions v-if="item.tags.length>0">
-          <mu-button small flat v-for="tag in item.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}" style="color: rgba(0,0,0,.54);max-width:40px;">
-            #{{tag.name}}
-          </mu-button>
-        </mu-card-actions>
-      </mu-card>
-      <mu-flex justify-content="center">
-        <mu-pagination v-show="pagination.total_count>10" @change="pageChange" :total="pagination.total_count"
-          :page-size="10" :page-count="5" :current="currentPage" style="margin: 20px 0px;">
-        </mu-pagination>
-      </mu-flex>
-    </div>
-    <div v-show="!isMoble" style="display:flex;flex-direction: column;width:30%;margin-left:28px;">
-      <sticky :z-index="999" :stickyTop="80">
-        <mu-card>
-          <mu-card-header title="Halo" sub-title="练习时长两年半..." style="border-bottom: 1px solid #efefef;">
-            <mu-avatar slot="avatar">
-              <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
-              <!-- <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/312047-P8I6YH-665.png"> -->
-            </mu-avatar>
+  <main class="container-wrap" justify-content="center" >
+    <section class="content-warp">
+      <div class="article-box">
+        <mu-card class="card-style" v-for="item in list" :key="item.hash">
+          <mu-card-header style="border-bottom: 1px solid #efefef;">
           </mu-card-header>
-          <mu-card-actions>
-            <template v-for="tag in tags">
-              <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}"
-                :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="min-width: 40px;">
-                #{{tag.name}}</mu-button>
-            </template>
+          <template v-if="item.images.length>1">
+              <mu-carousel transition="fade" hide-indicators >
+                <mu-carousel-item v-for="imgItem in item.images.slice(0,5)" :key="imgItem.url">
+                  <img :src="imgItem.url">
+                </mu-carousel-item>
+              </mu-carousel>
+          </template>
+          <template v-else>
+            <mu-card-media :style="'padding-bottom:'+item.scale+'%'">
+              <img :src="item.thumbnail">
+            </mu-card-media>
+          </template>
+          <mu-card-text>
+            {{item.content}}
+          </mu-card-text>
+          <mu-card-actions v-if="item.tags.length>0">
+            <mu-button small flat v-for="tag in item.tags" :key="tag.tag_id" :to="{query:{tag:tag.tag_id}}" style="color: rgba(0,0,0,.54);max-width:40px;">
+              #{{tag.name}}
+            </mu-button>
           </mu-card-actions>
         </mu-card>
-      </sticky>
-    </div>
-  </div>
+        <mu-flex justify-content="center">
+          <mu-pagination v-show="pagination.total_count>10" @change="pageChange" :total="pagination.total_count"
+            :page-size="10" :page-count="5" :current="currentPage" style="margin: 20px 0px;">
+          </mu-pagination>
+        </mu-flex>
+      </div>
+      <div class="user-profile" >
+        <sticky :z-index="999" :stickyTop="84" :width="270">
+          <mu-card>
+            <mu-card-header title="Halo" sub-title="练习时长两年半..." style="border-bottom: 1px solid #efefef;">
+              <mu-avatar slot="avatar">
+                <img src="https://unnu-1251996657.cos.ap-guangzhou.myqcloud.com/images/avatar-cat-2.jpg">
+              </mu-avatar>
+            </mu-card-header>
+            <mu-card-actions>
+              <template v-for="tag in tags">
+                <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}" :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="min-width: 40px;">#{{tag.name}}</mu-button>
+              </template>
+            </mu-card-actions>
+          </mu-card>
+        </sticky>
+      </div>
+    </section>
+  </main>
 </template>
 <script>
   import {
@@ -74,9 +67,9 @@
     data() {
       return {
         showChild: true,
-        mobileHeaderMenu: false,
-        windowInnerWidth: 0,
-        windowInnerHeight: 0,
+        // mobileHeaderMenu: false,
+        // windowInnerWidth: 0,
+        // windowInnerHeight: 0,
         loading: true,
         pagination: {
           total_count: 0,
@@ -100,16 +93,11 @@
       }
     },
     computed: {
-      isMoble: function () {
-        return this.windowInnerWidth < 992
-      },
       currentPage: function () {
         return this.$route.query.p ? parseInt(this.$route.query.p) : 1
       }
     },
     created() {
-      // this.getRemoteList()
-      window.addEventListener('scroll', this.handleScroll);
       getTagList().then(res => {
         const tmp = []
         res.data.forEach(el => {
@@ -135,14 +123,6 @@
             }
           }
         )
-      },
-      handleScroll() {
-        // console.log(window.scrollY)
-      },
-      resize() {
-        this.windowInnerWidth = window.innerWidth
-        this.windowInnerHeight = window.innerHeight
-        this.mobileHeaderMenu = this.windowInnerWidth < 600
       },
       pageChange(p) {
         const queryParams = Object.assign({}, this.$route.query, {
@@ -177,10 +157,36 @@
       }
     }
   }
-
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
-  
+  .container-wrap{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    max-width: 935px;
+    width: 100%;
+    margin: 0 auto ;
+    .content-warp{
+      display: flex;
+      padding-top: 30px;
+      width: 100%;
+      .article-box{
+        flex: 1;
+      }
+      .user-profile{
+        margin-left: 28px;
+        width: 270px;
+        overflow: hidden;
+      }
+    }
+    
+  }
   .mu-card-title-container,.mu-card-header {
     padding: 8px 16px;
   }
@@ -188,16 +194,9 @@
     padding-bottom: 66.667%;
     height: 0;
     background-color: #eeeeee;
-    // position: relative;
     .mu-carousel-item{
       img{
-        // border: 1px solid #000;
-        // max-height: 100%;
-        // max-width: 100%;
         object-fit: contain;
-        // position: absolute;
-        // left: 0;
-        // top: 0;
         width: 100%;
         height: 100%;
       }
@@ -208,12 +207,10 @@
     -webkit-box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     width: 100%;
-    margin-bottom: 60px;
-
+    margin-bottom: 30px;
     .mu-card-text {
       padding: 2px 16px;
     }
-
     .mu-card-media {
       overflow: hidden;
       position: relative;
@@ -228,8 +225,23 @@
     }
   }
 
-  .PCpaddingRight {
-    padding-right: 30px;
+  @media screen and (max-width: 992px){
+    .container-wrap{
+      .content-warp{
+        .user-profile{
+          display: none;
+        }
+      }
+    }
+    .card-style{
+      margin-bottom: 0;
+      -webkit-box-shadow: none ;
+      box-shadow: none;
+      
+    }
+    .mu-card{
+      border-radius: 0;
+    }
+    
   }
-
 </style>
