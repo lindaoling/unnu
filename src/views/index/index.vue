@@ -209,7 +209,8 @@
     width: 100%;
     margin-bottom: 30px;
     .mu-card-text {
-      padding: 2px 16px;
+      padding: 4px 16px;
+      color: rgba(0,0,0,.6);
     }
     .mu-card-media {
       overflow: hidden;
