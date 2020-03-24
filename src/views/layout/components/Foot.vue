@@ -2,7 +2,7 @@
   <footer class="footer-wrap">
     <div style="width: 100%;max-width:1000px;margin: 0 auto;text-align:center">
       <span class="copyright">
-        © 2019 UNNU.ME
+         {{icpInfo}}
       </span>
     </div>
   </footer>
@@ -10,7 +10,12 @@
 
 <script>
   export default {
-    name: 'Foot'
+    name: 'Foot',
+    computed:{
+      icpInfo: function () {
+        return 'augety.com'==window.location.hostname?'桂ICP备20001510号 © 2020 Augety.com' : '© 2020 UNNU.ME'
+      }
+    }
   }
 
 </script>

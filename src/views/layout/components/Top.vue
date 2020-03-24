@@ -18,7 +18,6 @@
     name: 'Top',
     computed:{
       currHost: function () {
-        console.log(window.location)
         return window.location.hostname || 'unnu.me'
       }
     }
