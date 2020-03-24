@@ -4,7 +4,7 @@
     <div class="header-nav-container">
       <mu-appbar z-depth="0" title="UNNU">
         <router-link to="/" style="color:rgb(115, 115, 115)">
-          unnu.me
+          {{currHost}}
         </router-link>
         <mu-button flat slot="right">Photo</mu-button>
         <mu-button flat slot="right">Article</mu-button>
@@ -15,7 +15,13 @@
 
 <script>
   export default {
-    name: 'Top'
+    name: 'Top',
+    computed:{
+      currHost: function () {
+        console.log(window.location)
+        return window.location.hostname || 'unnu.me'
+      }
+    }
   }
 
 </script>
