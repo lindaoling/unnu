@@ -6,8 +6,8 @@
         <router-link to="/" style="color:rgb(115, 115, 115)">
           {{currHost}}
         </router-link>
-        <mu-button flat slot="right">Photo</mu-button>
-        <mu-button flat slot="right">Article</mu-button>
+        <!-- <mu-button flat slot="right">Photo</mu-button>
+        <mu-button flat slot="right">Article</mu-button> -->
       </mu-appbar>
     </div>
   </nav>
