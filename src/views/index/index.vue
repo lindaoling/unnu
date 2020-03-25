@@ -169,6 +169,7 @@
     -webkit-flex-flow: row nowrap;
     -ms-flex-flow: row nowrap;
     flex-flow: row nowrap;
+    min-height: 500px;
     max-width: 935px;
     width: 100%;
     margin: 0 auto ;
