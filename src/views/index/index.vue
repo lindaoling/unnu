@@ -2,6 +2,12 @@
   <main class="container-wrap" justify-content="center" >
     <section class="content-warp">
       <div class="article-box">
+        <div class="ListTopTagLink">
+          <mu-button flat small :key="all" :to="{query:{tag:''}}" :disabled="$route.query.tag == undefined || $route.query.tag == ''" style="min-width: 40px;">#全部</mu-button>
+          <template v-for="tag in tags">
+            <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}" :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="min-width: 40px;">#{{tag.name}}</mu-button>
+          </template>
+        </div>
         <mu-card class="card-style" v-for="item in list" :key="item.hash">
           <mu-card-header style="border-bottom: 1px solid #efefef;">
           </mu-card-header>
@@ -41,6 +47,7 @@
               </mu-avatar>
             </mu-card-header>
             <mu-card-actions>
+              <mu-button flat small :key="all" :to="{query:{tag:''}}" :disabled="$route.query.tag == undefined || $route.query.tag == ''" style="min-width: 40px;">#全部</mu-button>
               <template v-for="tag in tags">
                 <mu-button flat small :key="tag.id" :to="{query:{tag:tag.id}}" :disabled="$route.query.tag != undefined && $route.query.tag==tag.id" style="min-width: 40px;">#{{tag.name}}</mu-button>
               </template>
@@ -179,6 +186,10 @@
       width: 100%;
       .article-box{
         flex: 1;
+
+        .ListTopTagLink{
+          display: none;
+        }
       }
       .user-profile{
         margin-left: 28px;
@@ -230,6 +241,12 @@
   @media screen and (max-width: 992px){
     .container-wrap{
       .content-warp{
+        padding-top: 0;
+        .article-box{
+          .ListTopTagLink{
+            display: block;
+          }
+        }
         .user-profile{
           display: none;
         }
