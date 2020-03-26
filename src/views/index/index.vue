@@ -54,8 +54,8 @@
             </mu-card-actions>
           </mu-card>
           <mu-card style="margin-top:10px;">
-            <div style="padding: 3px 9px;">
-              A photograph is a secret about a secret The more it tells you the less you know
+            <div style="padding: 3px 9px;font-weight: 410;">
+              A photograph is a secret about a secret, The more it tells you, the less you know
               <p style="margin:3px 6px;text-align:right;">-- Diane Arbus</p>
             </div>
           </mu-card>
