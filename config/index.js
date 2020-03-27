@@ -50,7 +50,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '//augety.com/',
+    assetsPublicPath: '//www.augety.com/',
 
     /**
      * Source Maps
