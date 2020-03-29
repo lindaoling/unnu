@@ -11,9 +11,9 @@
 <script>
   export default {
     name: 'Foot',
-    computed:{
+    computed: {
       icpInfo: function () {
-        return 'augety.com'==window.location.hostname?'桂ICP备20001510号 © 2020 Augety.com' : '© 2020 UNNU.ME'
+        return window.location.hostname.search('augety.com') !== -1 ? '桂ICP备20001510号 © 2020 Augety.com' : '© 2020 UNNU.ME'
       }
     }
   }
