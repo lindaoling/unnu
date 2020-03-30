@@ -10,9 +10,9 @@ export default {
   created(){
     let ismobile = this.isMobile()
     if(ismobile){
-      console.log('issssssssssssssssssssss mobile')
+      console.log('device:mobile')
     }else{
-      console.log('issssssssssssssssssssss pc')
+      console.log('device:pc')
     }
   },
   methods:{
