@@ -16,9 +16,9 @@
 <script>
   export default {
     name: 'Top',
-    computed:{
+    computed: {
       currHost: function () {
-        return window.location.hostname || 'unnu.me'
+        return window.location.hostname.search('augety.com') !== -1 ? 'Augety' : 'UNNU'
       }
     }
   }
@@ -30,7 +30,6 @@ $nav-height:54px;
   position: relative;
   width: 100%;
   z-index: 999;
-  
   .header-placeholder{
     height: $nav-height;
   }
