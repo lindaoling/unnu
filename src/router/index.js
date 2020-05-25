@@ -34,6 +34,22 @@ export default new Router({
         //   component: _import('index/detail')
         // },
         {
+          path: '/a',
+          name: 'ArticleList',
+          meta: {
+            title: 'Article'
+          },
+          component: _import('article/list')
+        },
+        {
+          path: '/a/:hash',
+          name: 'ArticleDetail',
+          meta: {
+            title: 'Article'
+          },
+          component: _import('article/detail')
+        },
+        {
           path: '/porn',
           name: 'Porn',
           meta: {
