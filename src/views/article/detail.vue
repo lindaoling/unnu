@@ -5,9 +5,14 @@
           <div class="article-content">
             <h2>{{detail.title}}</h2>
             <div class="" v-html="detail.content"></div>
+            <mu-flex align-items="center" style="margin-top:30px;">
+              <mu-flex justify-content="start" fill>上一篇：大国崛起</mu-flex>
+              <mu-flex justify-content="end" fill>上一篇：大国衰落</mu-flex>
+            </mu-flex>
           </div>
         </div >
       </div >
+
   </mu-flex>
 </template>
 <script>
@@ -55,6 +60,7 @@
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
   .container-wrap{
+    background-color: #fff;
     max-width: 935px;    
     .content-warp{
       padding: 30px 80px;
