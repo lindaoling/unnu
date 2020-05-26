@@ -1,18 +1,14 @@
 <template>
-  <!-- <main class="container-wrap" > -->
-    <mu-flex justify-content="center">
-      <!-- <mu-flex justify-content="center" > -->
-        <div class="container-wrap">
-          <div class="content-warp">
-            <div class="article-content">
-              <h2>{{detail.title}}</h2>
-              <div class="" v-html="detail.content"></div>
-            </div>
-          </div >
+  <mu-flex justify-content="center">
+      <div class="container-wrap">
+        <div class="content-warp">
+          <div class="article-content">
+            <h2>{{detail.title}}</h2>
+            <div class="" v-html="detail.content"></div>
+          </div>
         </div >
-      <!-- </mu-flex> -->
-    </mu-flex>
-  <!-- </main> -->
+      </div >
+  </mu-flex>
 </template>
 <script>
   import {
