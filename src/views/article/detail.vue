@@ -57,7 +57,7 @@
   .container-wrap{
     max-width: 935px;    
     .content-warp{
-      padding: 30px 100px 0 150px;
+      padding: 30px 80px;
       .article-content{
         color: #333;
         font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
