@@ -1,12 +1,18 @@
 <template>
-  <main class="container-wrap" justify-content="center" >
-    <section class="content-warp">
-      <div class="article-box">
-        <h3>{{detail.title}}</h3>
-        <div class="article-content" v-html="detail.content"></div>
-      </div >
-    </section>
-  </main>
+  <!-- <main class="container-wrap" > -->
+    <mu-flex justify-content="center">
+      <!-- <mu-flex justify-content="center" > -->
+        <div class="container-wrap">
+          <div class="content-warp">
+            <div class="article-content">
+              <h2>{{detail.title}}</h2>
+              <div class="" v-html="detail.content"></div>
+            </div>
+          </div >
+        </div >
+      <!-- </mu-flex> -->
+    </mu-flex>
+  <!-- </main> -->
 </template>
 <script>
   import {
@@ -53,31 +59,21 @@
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
   .container-wrap{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: row nowrap;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    min-height: 500px;
-    max-width: 700px;
-    width: 100%;
-    margin: 0 auto ;
+    max-width: 935px;    
     .content-warp{
-      display: flex;
-      padding-top: 30px;
-      width: 100%;
-      // .article-box{
-      //   flex: 1;
-      // }
+      padding: 30px 100px 0 150px;
+      .article-content{
+        color: #333;
+        font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+        font-size: 16px;
+        word-wrap: break-word;
+        overflow: hidden;
+      }
     }
   }
 </style>
 <style>
-  .article-box img {
+  .content-warp img {
     max-width: 100% !important;
   }
 </style>
