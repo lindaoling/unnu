@@ -64,7 +64,7 @@
 <style rel="stylesheet/scss" lang="scss" scoped>
   .container-wrap{
     background-color: #fff;
-    max-width: 935px;    
+    max-width: 935px;
     .content-warp{
       .article-content{
         color: #333;
@@ -85,7 +85,7 @@
       .content-warp{
         .article-content{
           .main-editor{
-            padding: 0 15px 10px 15px;
+            padding: 0 20px 10px 20px;
           }
         }
       }
