@@ -10,7 +10,7 @@
               <div class="title-box">
                 <h2>{{detail.title}}</h2>
               </div>
-              <div class="content-box" v-html="detail.content"></div>
+              <div class="content-box markdown-body" v-html="detail.content"></div>
               <mu-flex align-items="center" style="margin-top:30px;">
                 <mu-flex justify-content="start" fill>上一篇：大国崛起</mu-flex>
                 <mu-flex justify-content="end" fill>上一篇：大国衰落</mu-flex>
