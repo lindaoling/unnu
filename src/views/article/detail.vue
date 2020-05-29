@@ -1,6 +1,6 @@
 <template>
   <mu-flex justify-content="center" >
-    <mu-flex fill class="container-article-wrap">
+    <mu-flex fill class="container-wrap">
       <mu-flex direction="column" class="article-content">
         <mu-flex class="thumbnail-box">
           <img v-if=" '' != detail.thumbnail" :src="detail.thumbnail" alt="" style="max-width:100%">
@@ -10,7 +10,6 @@
             <h2>{{detail.title}}</h2>
           </div>
           <div class="content-box markdown-body" v-html="detail.content"></div>
-          <!-- <div class="content-box markdown-body">sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</div> -->
           <mu-flex align-items="center" style="margin-top:30px;" fill>
             <mu-flex justify-content="start" fill>上一篇：大国崛起</mu-flex>
             <mu-flex justify-content="end" fill>上一篇：大国衰落</mu-flex>
@@ -62,7 +61,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .container-article-wrap{
+  .container-wrap{
     background-color: #fff;
     max-width: 935px;
     margin-top: 30px;
@@ -86,7 +85,7 @@
     }
   }
   @media screen and (max-width: 992px){
-    .container-article-wrap{
+    .container-wrap{
       margin-top: 0;
       .article-content{
         .main-editor{
