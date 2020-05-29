@@ -90,7 +90,7 @@
       margin-top: 0;
       .article-content{
         .main-editor{
-          padding: 0 20px 10px 20px;
+          padding: 0 10px 10px 10px;
         }
       }
     }
