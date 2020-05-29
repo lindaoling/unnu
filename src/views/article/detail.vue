@@ -73,6 +73,12 @@
       word-wrap: break-word;
       word-break:break-all; 
       overflow: hidden;
+      .thumbnail-box {
+        width: 100%;
+        img{
+          width: 100%;
+        }
+      }
       .main-editor{
         max-width: 100%;
         padding: 0 80px 30px 80px;
