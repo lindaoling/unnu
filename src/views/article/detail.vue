@@ -1,6 +1,6 @@
 <template>
   <mu-flex justify-content="center" >
-    <mu-flex fill class="container-wrap">
+    <mu-flex fill class="container-article-wrap">
       <mu-flex direction="column" class="article-content">
         <mu-flex class="thumbnail-box">
           <img v-if=" '' != detail.thumbnail" :src="detail.thumbnail" alt="" style="max-width:100%">
@@ -61,7 +61,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-  .container-wrap{
+  .container-article-wrap{
     background-color: #fff;
     max-width: 935px;
     margin-top: 30px;
@@ -69,10 +69,6 @@
       max-width: 100%;
       color: #333;
       font-family: Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
-      font-size: 16px;
-      word-wrap: break-word;
-      word-break:break-all; 
-      overflow: hidden;
       .thumbnail-box {
         width: 100%;
         img{
@@ -80,9 +76,15 @@
         }
       }
       .main-editor{
+        font-size: 16px;
+        word-wrap: break-word;
+        word-break:break-all; 
+        overflow: hidden;
         max-width: 100%;
+        width: 100%;
         padding: 0 80px 30px 80px;
         .content-box{
+          width: 100%;
           /deep/ img{
             max-width: 100% !important;
           }
@@ -90,14 +92,14 @@
       }
     }
   }
-  @media screen and (max-width: 992px){
-    .container-wrap{
-      margin-top: 0;
-      .article-content{
-        .main-editor{
-          padding: 0 10px 10px 10px;
-        }
-      }
-    }
-  }
+  // @media screen and (max-width: 992px){
+  //   .container-article-wrap{
+  //     margin-top: 0;
+  //     .article-content{
+  //       .main-editor{
+  //         padding: 0 10px 10px 10px;
+  //       }
+  //     }
+  //   }
+  // }
 </style>
