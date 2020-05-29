@@ -65,7 +65,6 @@
     background-color: #fff;
     max-width: 935px;
     margin-top: 30px;
-    max-width: 100%;
   }
   .article-content{
     max-width: 100%;
